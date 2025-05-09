@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login / Register - TypeTurtle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="topnav">
+    <div class="navlinks">
+      <a href="index.htm">Home</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" class="active">Login / Register</a>
+      <a href="faq.html">F&Qs</a>
+    </div>
+  </div>
+
+  <div class="login-form">
+    <div class="login-type-selector">
+      <label for="login-type-login">Log In</label>
+      <input type="radio" name="login-type" id="login-type-login" checked onclick="toggleLoginType('login')" />
+      <label for="login-type-register">Register</label>
+      <input type="radio" name="login-type" id="login-type-register" onclick="toggleLoginType('register')" />
+
+    </div>
+    <div id="login-type-login-form" class="login-form-content">
+      <h2 id="login-title">Login</h2>
+      <p id="message">Enter your username and password.</p>
+    </div>  
+
+    <input type="text" id="username" placeholder="Username" />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button id="loginButton" onclick="onLogin()">Log In</button>
+    <button id="registerButton" onclick="onRegister()" style="display: none;">Register</button>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 TypeTurtle — Built by <a href="https://github.com/KingTom07" target="_blank">KingTom07 🐢</a></p>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+</html>

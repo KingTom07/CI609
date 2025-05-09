@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leaderboard - TypeTurtle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/04e459c2ff.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="topnav">
+    <div class="navlinks">
+        <a href="index.htm">Home</a>
+        <a href="leaderboard.html" class="active">Leaderboard</a>
+        <a href="login.html">Login / Register</a>
+        <a href="faq.html">F&Qs</a>
+    </div>
+  </div>
+
+  <div class="leaderboard-page">
+    <h2 class="title">Leaderboard</h2>
+    <div id="leaderboardEntries"></div>
+    <canvas id="resultChart" width="400" height="200"></canvas>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 TypeTurtle — Built by <a href="https://github.com/KingTom07" target="_blank">KingTom07 🐢</a></p>
+  </footer>
+
+  <script src="leaderboard.js"></script>
+</body>
+</html>

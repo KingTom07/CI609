@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game Over | TypeTurtle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="results-page">
+  <div class="gameover-container">
+    <h1>Game Over</h1>
+    <p id="finalScore"></p>
+    <button onclick="retryGame()">Try Again</button>
+    <button onclick="goHome()">Home</button>
+  </div>
+  
+  <footer class="footer">
+    <p>© 2025 TypeTurtle — Built by <a href="https://github.com/KingTom07" target="_blank">KingTom07 🐢</a></p>
+  </footer>
+
+  <script>
+    // Helper function to get query parameter from URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+    
+    function retryGame() {
+      window.location.href = "arrows.html";
+    }
+    
+    function goHome() {
+      window.location.href = "index.htm";
+    }
+    
+    const score = getQueryParam("score");
+    document.getElementById("finalScore").textContent = "Your final score is: " + (score || 0);
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Burst Mode Results</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/04e459c2ff.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="results-page">
+  <div class="result-container">
+    <h1>💥 Burst Mode Results</h1>
+    <div class="summary" id="summary"></div>
+    <canvas id="resultChart"></canvas>
+    <button class="back-btn" onclick="window.location.href='burst.html'">Try Again</button>
+  </div>
+
+  <script>
+    const results = JSON.parse(localStorage.getItem("burstResults"));
+
+    if (!results) {
+      document.body.innerHTML = "<h2>No results found.</h2>";
+    } else {
+      document.getElementById("summary").innerHTML = `
+        WPM: <strong>${results.wpm}</strong> |
+        Accuracy: <strong>${results.accuracy}%</strong>
+      `;
+
+      const ctx = document.getElementById("resultChart").getContext("2d");
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: results.labels,
+          datasets: [
+            {
+              label: "WPM",
+              data: results.wpmData,
+              borderColor: "blue",
+              fill: false
+            },
+            {
+              label: "Accuracy (%)",
+              data: results.accuracyData,
+              borderColor: "green",
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            x: { title: { display: true, text: "Time (s)" }},
+            y: { min: 0, max: 100, title: { display: true, text: "Value" }}
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
